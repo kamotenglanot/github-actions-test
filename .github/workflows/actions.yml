@@ -1,11 +1,9 @@
 name: Actions Workflow
 
 on:
-  repository_dispatch:
-    types: [build]
-#  schedule:
-  #  - cron: "0/5 * * * *"
-  #  - cron: "0/6 * * * *"
+  schedule:
+    - cron: "0/5 * * * *"
+    - cron: "0/6 * * * *"
   pull_request:
     types: [closed, assigned, opened, reopened]
 
@@ -33,6 +31,6 @@ jobs:
         id: greet
         uses: actions/hello-world-javascript-action@v1
         with:
-          who-to-greet: Tom
+          who-to-greet: John
       - name: Log Greeting Time
         run: echo "${{ steps.greet.outputs.time }}"
