@@ -1,6 +1,7 @@
 name: Actions Workflow
 
 on:
+  push:
   schedule:
     - cron: "0/5 * * * *"
     - cron: "0/6 * * * *"
@@ -31,6 +32,6 @@ jobs:
         id: greet
         uses: actions/hello-world-javascript-action@v1
         with:
-          who-to-greet: John
+          who-to-greet: Tom
       - name: Log Greeting Time
         run: echo "${{ steps.greet.outputs.time }}"
